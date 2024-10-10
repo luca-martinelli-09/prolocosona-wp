@@ -1,0 +1,190 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `base` layer
+ *
+ * “Add things like base typography styles [or] opinionated global resets.”
+ *
+ * — from https://tailwindcss.com/docs/plugins#adding-base-styles
+ */
+
+/**
+ * This uses the background and foreground colors declared in the
+ * `theme.json` file and is applied both to the frontend and in the block
+ * editor.
+*/
+
+body {
+	@apply bg-background text-foreground font-sans;
+}
+
+.menu-item {
+	@apply text-sm font-semibold relative rounded-xl hover:bg-gray-200;
+}
+
+.menu-item > a {
+	@apply px-4 py-2 flex-1 hover:bg-gray-200 rounded-xl hover:underline;
+}
+
+.menu-item.menu-item-has-children.opened > a,
+.menu-item.menu-item-has-children.opened > .dropdown-button-menu,
+.menu-item.current_page_item,
+.menu-item.current_page_parent {
+	@apply bg-gray-200;
+}
+
+.menu-item.menu-item-has-children > a {
+	@apply rounded-r-none pr-0;
+}
+
+.menu-item .dropdown-button-menu {
+	@apply flex flex-row items-center p-2 text-left bg-transparent rounded-r-xl hover:bg-gray-200;
+}
+
+.sub-menu {
+	@apply absolute right-0 top-full w-full origin-top-right rounded-xl shadow-md xl:w-max z-50 bg-white p-1;
+}
+
+.menu-item:not(.opened) .sub-menu {
+	@apply hidden;
+}
+
+.sub-menu .sub-menu {
+	@apply xl:left-full xl:top-0;
+}
+
+.sub-menu .dropdown-button-menu svg {
+	@apply xl:-rotate-90;
+}
+
+#main {
+	@apply opacity-0;
+}
+
+ul.wp-block-latest-posts {
+	@apply p-0 list-none;
+
+	li {
+		@apply p-0;
+	}
+
+	&.is-grid {
+		@apply gap-5;
+
+		li {
+			@apply m-0;
+		}
+	}
+}
+
+#primary {
+	@apply px-5;
+}
+
+.wp-block-cover {
+	@apply rounded-3xl p-10 md:p-14 lg:p-20;
+}
+
+.wp-block-search {
+	input {
+		@apply rounded-l-full outline-none text-foreground px-5 border-none shadow-md;
+	}
+
+	button {
+		@apply m-0 rounded-r-full bg-primary border-none flex font-bold pl-5 px-6 py-3 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg active:scale-95 active:shadow-none;
+	}
+}
+
+h1 {
+	@apply font-display;
+}
+
+#content {
+	.entry-header,
+	.page-header {
+		@apply bg-primary/10 max-w-full rounded-3xl mx-auto flex flex-col justify-center p-5 lg:p-10 xl:p-20;
+
+		.entry-title,
+		.page-title {
+			@apply text-2xl text-center md:text-3xl lg:text-4xl xl:text-5xl;
+		}
+
+		.entry-meta {
+			@apply max-w-content mx-auto flex flex-col gap-3 mt-5;
+		}
+
+		.categories > ul {
+			@apply flex gap-2 flex-wrap justify-center;
+		}
+
+		.datetimes {
+			@apply flex justify-center text-center gap-3 text-foreground text-opacity-80 font-semibold;
+
+			.updated-container {
+				@apply sr-only;
+			}
+		}
+	}
+
+	.excerpt {
+		@apply max-w-content mx-auto p-5 mt-5 lg:p-10 text-center border-2 border-primary/10 border-dashed rounded-3xl text-lg font-serif;
+	}
+
+	.page,
+	.post {
+		> figure > .attachment-post-thumbnail {
+			@apply w-full max-w-wide max-h-96 mx-auto rounded-3xl aspect-video object-cover object-center mt-5;
+		}
+	}
+
+	.entry-content {
+		@apply mt-5 lg:mt-10;
+	}
+
+	.entry-footer {
+		@apply max-w-content mx-auto mt-5 lg:mt-10 border-l-2 border-secondary/10 p-5 flex flex-col gap-3;
+
+		.tags > ul {
+			@apply flex gap-2 flex-wrap;
+		}
+	}
+}
+
+.category-pill > a {
+	@apply border-2 border-primary rounded-full text-primary px-3 py-1 text-sm hover:bg-primary hover:text-white;
+	@apply transition-all duration-300 ease-in-out;
+}
+
+.tag-pill > a {
+	@apply text-primary before:content-['#'] font-semibold;
+}
+
+.article-list {
+	@apply max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5;
+
+	.article-list-element {
+		@apply rounded-xl bg-background shadow-xl flex flex-col transition-all duration-300 ease-in-out hover:shadow-2xl;
+
+		> figure {
+			@apply shrink-0;
+
+			.attachment-post-thumbnail {
+				@apply aspect-video w-full rounded-t-xl object-cover object-center;
+			}
+		}
+
+		.thumb-title {
+			@apply font-bold text-primary text-xl lg:text-2xl;
+		}
+	}
+}
+
+.navigation {
+	@apply max-w-content mx-auto mt-10 flex justify-center;
+
+	.page-numbers {
+		@apply px-3 py-2 border-2 rounded-lg text-primary font-semibold;
+
+		&.current {
+			@apply bg-primary border-primary text-white;
+		}
+	}
+}

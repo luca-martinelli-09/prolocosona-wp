@@ -1,0 +1,114 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `components` layer
+ *
+ * “Add more opinionated, complex classes like buttons, form controls, alerts,
+ * etc; the sort of pre-built components you often see in other frameworks that
+ * you might need to override with utility classes.”
+ *
+ * — from https://tailwindcss.com/docs/plugins#adding-components
+ */
+
+/**
+ * Post title styles
+ *
+ * These will be applied to all headings with a `page-title` or `entry-title`
+ * class on the frontend and to the post title in the block editor.
+ *
+ * The supplied styles are meant to match the default `h1` classes from
+ * Tailwind Typography.
+ */
+.page-title,
+.entry-title {
+	@apply max-w-content mx-auto mb-6 text-3xl font-extrabold text-neutral-900;
+}
+
+/**
+ * Layout styles for centered content areas
+ *
+ * If you are controlling the width of your content area with styles applied
+ * to its container, you can delete the following styles whose selectors begin
+ * with `.page-content >` and `.entry-content >`. For more details, please see
+ * the following:
+ *
+ * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
+ */
+.page-content > *,
+.entry-content > * {
+	/* Content width from the `theme.json` file */
+	@apply max-w-content mx-auto;
+}
+
+.entry-content > .alignwide {
+	/* Wide width from the `theme.json` file */
+	@apply max-w-wide;
+}
+
+.entry-content > .alignfull {
+	@apply max-w-none;
+}
+
+.entry-content > .alignleft {
+	@apply float-left mr-8;
+}
+
+.entry-content > .alignright {
+	@apply float-right ml-8;
+}
+
+.wp-block-button,
+.wp-block-file {
+	.wp-element-button {
+		@apply no-underline px-6 py-3 rounded-full bg-primary text-white font-bold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg active:scale-95 active:shadow-none;
+	}
+
+	&.is-style-outline {
+		.wp-element-button {
+			@apply text-primary bg-transparent border-2 border-primary shadow-none;
+		}
+	}
+}
+
+.wp-block-latest-posts {
+	li {
+		@apply rounded-xl bg-background shadow-xl flex flex-col transition-all duration-300 ease-in-out hover:shadow-2xl;
+
+		> :not(.wp-block-latest-posts__featured-image) {
+			@apply px-5 mt-3;
+		}
+
+		.wp-block-latest-posts__post-title {
+			@apply no-underline font-bold font-sans text-primary w-full text-xl lg:text-2xl;
+		}
+
+		.wp-post-image {
+			@apply w-full m-0 aspect-video object-cover object-center rounded-t-xl;
+		}
+
+		.wp-block-latest-posts__featured-image.aligncenter {
+			@apply m-0;
+		}
+
+		.wp-block-latest-posts__post-date {
+			@apply text-foreground text-opacity-70;
+		}
+	}
+}
+
+.wp-block-file {
+	> a:not(.wp-element-button) {
+		@apply text-lg;
+	}
+}
+
+.wpcf7-text,
+.wpcf7-textarea {
+	@apply border rounded-lg py-1 px-2 outline-none focus:outline focus:outline-primary w-full;
+}
+
+.wpcf7-submit {
+	@apply cursor-pointer w-full px-6 py-3 rounded-full bg-primary text-white font-bold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg active:scale-95 active:shadow-none;
+}
+
+.wp-block-group.is-style-has-background {
+	@apply -mx-5 lg:mx-auto rounded-none p-5 lg:p-10 bg-primary/5 lg:rounded-3xl;
+}
