@@ -81,7 +81,7 @@
 		}
 
 		.wp-post-image {
-			@apply w-full m-0 aspect-video object-cover object-center rounded-t-xl;
+			@apply w-full m-0 object-cover object-center rounded-t-xl;
 		}
 
 		.wp-block-latest-posts__featured-image.aligncenter {

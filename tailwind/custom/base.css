@@ -131,7 +131,7 @@ h1 {
 	.page,
 	.post {
 		> figure > .attachment-post-thumbnail {
-			@apply w-full max-w-wide max-h-96 mx-auto rounded-3xl aspect-video object-cover object-center mt-5;
+			@apply w-full max-w-wide max-h-96 mx-auto rounded-3xl object-cover object-center mt-5;
 		}
 	}
 
@@ -167,7 +167,7 @@ h1 {
 			@apply shrink-0;
 
 			.attachment-post-thumbnail {
-				@apply aspect-video w-full rounded-t-xl object-cover object-center;
+				@apply w-full rounded-t-xl object-cover object-center;
 			}
 		}
 
